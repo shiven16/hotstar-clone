@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import apiContextProvider from "./Components/Context.js";
+import SignUp from "./Components/SignUp";
+import Login from "./Components/Login.js";
 
+import Homepage from "./Components/Homepage";
+import Error from "./Components/Error";
+import AllShows from "./Components/AllShows.js";
+import Navbar from "./Components/Navbar.js";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const router = createBrowserRouter([
+
+    {path:"/",element:<Homepage/>,children:[
+      {index:true, element:<AllShows/>}
+    ]},
+    {path:"/signup",element:<SignUp/>},
+    {path:"/login",element:<Login/>},
+    {path:"/error",element:<Error/>},
+    {path:"*",element:<SignUp/>},
+    ]);
+  return(
+    <apiContextProvider>
+      <RouterProvider router={router} />
+    </apiContextProvider>
+  ) 
 }
 
 export default App;

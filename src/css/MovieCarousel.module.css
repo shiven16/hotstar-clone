@@ -1,0 +1,14 @@
+.carousel{
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 20vmax;
+}
+.categoryName{
+    color: white;
+    font-size: 2vmax;
+    font-weight: 400;
+    margin-left: 0.8vmax;
+    font-family: "Times New Roman", Times, serif;
+    text-transform: capitalize;
+}
